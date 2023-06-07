@@ -8,16 +8,16 @@ datasource db {
 }
 
 model customers {
-  id       Int                @id @default(autoincrement())
-  email    String             @unique
+  id       String   @id @default(uuid())
   name     String
-  products favoriteProducts[]
+  email    String   @unique
+  products products[]
 }
 
-model favoriteProducts {
-  id         Int        @id @default(autoincrement())
-  customerId Int
-  productId  Int        @unique
+model products {
+  id         String     @id @default(uuid())
+  customerId String
+  productId  String?    @unique
   customer   customers  @relation(fields: [customerId], references: [id])
 }
 
