@@ -1,0 +1,24 @@
+# docker-compose.yml
+
+version: '3.8'
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  postgres:
+    container_name: luiza_labs_db
+    image: postgres:13.5
+    restart: always
+    environment:
+      POSTGRES_USER: '${DATABASE_USER}'
+      POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+volumes:
+  postgres:
