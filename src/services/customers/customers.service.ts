@@ -2,9 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/services/prisma/prisma.service';
 import { HttpService } from '@nestjs/axios';
 
-import { CreateCustomerDTO } from 'src/dtos/customer/create-customer.dto';
-import { PartialUpdateDTO } from 'src/dtos/customer/partial-update-customer.dto';
-import { UpdateCustomerDTO } from 'src/dtos/customer/update-customer.dto';
+import { 
+  CreateCustomerDTO, 
+  PartialUpdateDTO, 
+  UpdateCustomerDTO 
+} from '@dtos';
+
 import { lastValueFrom } from 'rxjs';
 
 @Injectable()

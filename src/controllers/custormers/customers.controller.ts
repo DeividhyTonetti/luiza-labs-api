@@ -1,9 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Put, Param, Delete, UsePipes, HttpCode, HttpStatus } from '@nestjs/common';
-import { CustomersService } from './customers.service';
+import { CustomersService } from '@services';
 import { ValidationPipe } from '@nestjs/common';
-import { PartialUpdateDTO } from 'src/dtos/customer/partial-update-customer.dto';
-import { UpdateCustomerDTO } from 'src/dtos/customer/update-customer.dto';
-import { CreateCustomerDTO } from 'src/dtos/customer/create-customer.dto';
+import { PartialUpdateDTO, UpdateCustomerDTO, CreateCustomerDTO } from '@dtos';
+import { Controller, Get, Post, Body, Patch, Put, Param, Delete, UsePipes, HttpCode, HttpStatus } from '@nestjs/common';
+
 import { ApiParam, ApiBody, ApiTags } from '@nestjs/swagger';
 
 @Controller('customers')

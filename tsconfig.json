@@ -27,7 +27,7 @@
 			// "@entities": ["src/core/domain/entities/index"],
 			// "@decorators": ["src/common/decorators/index"],
 			// "@guards": ["src/common/guards/index"],
-			// "@modules": ["src/modules/index"],
+			"@modules": ["src/modules/index"],
 			// "@base": ["src/core/base/index", "src/data/base/database.ts", "src/data/base/in-memory.ts"],
 			// "@infrastructure": ["src/infrastructure/index"],
 			// "@utils/*": ["src/core/utils/*"],

@@ -1,7 +1,11 @@
-import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { CustormersModule } from './custormers/customers.module';
-import { ProductsModule } from './products/products.module';
+import { APP_GUARD } from '@nestjs/core'
+import { Module } from '@nestjs/common';
+
+import { 
+  CustormersModule,
+  ProductsModule
+} from '@modules'
 
 @Module({
   imports: [
@@ -10,4 +14,5 @@ import { ProductsModule } from './products/products.module';
     ProductsModule,
   ],
 })
+
 export class AppModule {}
