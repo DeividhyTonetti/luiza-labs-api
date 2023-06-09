@@ -16,6 +16,24 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+			"@services": ["src/services/index"],
+			"@services/*": ["src/services/*"],
+			"@dtos": ["src/shared/dtos/index"],
+			"@controllers": ["src/controllers/index"],
+			"@repositories": ["src/core/repositories/index"],
+			// "@database-repositories": ["src/data/database/index"],
+			// "@entities": ["src/core/domain/entities/index"],
+			// "@decorators": ["src/common/decorators/index"],
+			// "@guards": ["src/common/guards/index"],
+			// "@modules": ["src/modules/index"],
+			// "@base": ["src/core/base/index", "src/data/base/database.ts", "src/data/base/in-memory.ts"],
+			// "@infrastructure": ["src/infrastructure/index"],
+			// "@utils/*": ["src/core/utils/*"],
+			// "@mappers": ["src/core/domain/mappers/index"],
+			// "@data/*": ["src/data/*"],
+			"@/*": ["src/*"]
+		}
   }
 }

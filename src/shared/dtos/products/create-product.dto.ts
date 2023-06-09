@@ -1,24 +1,21 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import {
-  IsEmail,
   IsNotEmpty,
   IsString,
-  MaxLength,
-  MinLength,
+  IsUUID,
 } from 'class-validator';
 
-export class CreateArticleDto {
+export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
-  @MinLength(3)
+  @IsUUID()
   @ApiProperty({ required: true })
-  name: string;
+  customerId: string;
 
-  @IsEmail()
   @IsString()
   @IsNotEmpty()
-  @MaxLength(300)
+  @IsUUID()
   @ApiProperty({ required: true })
-  email: string;
+  productId: string;
 }
