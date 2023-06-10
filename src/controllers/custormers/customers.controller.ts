@@ -1,6 +1,6 @@
 import { CustomersService } from '@services';
 import { ValidationPipe } from '@nestjs/common';
-import { PartialUpdateDTO, UpdateCustomerDTO, CreateCustomerDTO } from '@dtos';
+import { PartialUpdateCustormerDTO, UpdateCustomerDTO, CreateCustomerDTO } from '@dtos';
 import { Controller, Get, Post, Body, Patch, Put, Param, Delete, UsePipes, HttpCode, HttpStatus } from '@nestjs/common';
 
 import { ApiParam, ApiBody, ApiTags } from '@nestjs/swagger';
@@ -34,10 +34,10 @@ export class CustomersController {
 
   @Patch(':id')
   @ApiParam({ name: 'id', type: String })
-  @ApiBody({ type: PartialUpdateDTO })
+  @ApiBody({ type: PartialUpdateCustormerDTO })
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
-  partialUpdate(@Param('id') id: string, @Body() updateCustomerDto: PartialUpdateDTO) {
+  partialUpdate(@Param('id') id: string, @Body() updateCustomerDto: PartialUpdateCustormerDTO) {
     return this.customersService.patch(id, updateCustomerDto);
   }
   

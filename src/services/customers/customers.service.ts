@@ -4,7 +4,7 @@ import { HttpService } from '@nestjs/axios';
 
 import { 
   CreateCustomerDTO, 
-  PartialUpdateDTO, 
+  PartialUpdateCustormerDTO, 
   UpdateCustomerDTO 
 } from '@dtos';
 
@@ -46,7 +46,7 @@ export class CustomersService {
     })
   }
 
-  async patch(id: string, custormerData: PartialUpdateDTO) {
+  async patch(id: string, custormerData: PartialUpdateCustormerDTO) {
     return await this.prisma.customers.update({
       data: custormerData,
       where: { id }

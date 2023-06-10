@@ -10,7 +10,7 @@ import {
 } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
 
-export class PartialUpdateDTO extends PartialType(CreateCustomerDTO) {
+export class PartialUpdateCustormerDTO extends PartialType(CreateCustomerDTO) {
   @IsString()
   @IsNotEmpty()
   @MinLength(3)

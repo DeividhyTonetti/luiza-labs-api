@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { CreateProductDto } from './create-product.dto';
 
 import {
   IsNotEmpty,
@@ -6,7 +7,9 @@ import {
   IsUUID,
 } from 'class-validator';
 
-export class CreateProductDto {
+import { PartialType } from '@nestjs/mapped-types';
+
+export class PartialUpdateProductDTO extends PartialType(CreateProductDto) {
   @IsString()
   @IsNotEmpty()
   @IsUUID()
@@ -22,20 +25,20 @@ export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({ required: true })
-  title: string;
+  title?: string;
   
   @IsString()
   @IsNotEmpty()
   @ApiProperty({ required: true })
-  price: string;
+  price?: string;
   
   @IsString()
   @IsNotEmpty()
   @ApiProperty({ required: true })
-  image: string;
+  image?: string;
   
   @IsString()
   @IsNotEmpty()
   @ApiProperty({ required: true })
-  reviewLink: string;
+  reviewLink?: string;
 }

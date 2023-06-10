@@ -18,6 +18,10 @@ model products {
   id         String     @id @default(uuid())
   customerId String
   productId  String?    @unique
+  title      String
+  price      String
+  image      String
+  reviewLink String
   customer   customers  @relation(fields: [customerId], references: [id])
 }
 
