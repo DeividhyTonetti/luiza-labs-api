@@ -7,7 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-
+  app.enableCors();
+  
   const config = new DocumentBuilder()
     .setTitle('Luiza Labs')
     .setDescription('The Luiza Labs API description')
