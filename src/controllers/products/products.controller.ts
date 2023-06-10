@@ -1,11 +1,12 @@
 import { ProductsService } from '@services';
 import { ValidationPipe } from '@nestjs/common';
-import { CreateProductDto } from '@dtos';
+import { CreateProductDto, PartialUpdateProductDTO, UpdateProductDTO } from '@dtos';
 import { Controller, Get, Post, Body, Patch, Put, Param, Delete, UsePipes, HttpCode, HttpStatus } from '@nestjs/common';
 
 import { ApiParam, ApiBody, ApiTags } from '@nestjs/swagger';
 
 @Controller('products')
+@ApiTags('Products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
@@ -33,16 +34,16 @@ export class ProductsController {
 
   @Patch(':id')
   @ApiParam({ name: 'id', type: String })
-  @ApiBody({ type: PartialUpdateDTO })
+  @ApiBody({ type: PartialUpdateProductDTO })
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
-  partialUpdate(@Param('id') id: string, @Body() updateCustomerDto: PartialUpdateDTO) {
+  partialUpdate(@Param('id') id: string, @Body() updateCustomerDto: PartialUpdateProductDTO) {
     // return this.customersService.patch(id, updateCustomerDto);
   }
 
   @Put(':id')
   @ApiParam({ name: 'id', type: String })
-  @ApiBody({ type: UpdateCustomerDTO })
+  @ApiBody({ type: UpdateProductDTO })
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
   update(@Param('id') id: string, @Body() updateProductDto: any) {
