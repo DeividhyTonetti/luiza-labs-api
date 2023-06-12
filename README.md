@@ -109,7 +109,283 @@ Content-Type: application/json
   "email": "johndoe@example.com",
   ...
 }
+```
 
+GET /customers
+Endpoint para recuperar todos os clientes.
+
+Parâmetros da Consulta
+Nenhum.
+
+Resposta:
+```bash
+200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    ...
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "email": "janesmith@example.com",
+    ...
+  },
+  ...
+]
+```
+
+GET /customers/:id
+Endpoint para recuperar um cliente específico pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do cliente.
+Resposta:
+
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
+```
+
+PATCH /customers/:id
+Endpoint para atualizar parcialmente um cliente existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do cliente a ser atualizado.
+Corpo da Requisição:
+
+```bash
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  ...
+}
+```
+
+Resposta: 
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
+```
+
+PUT /customers/:id
+Endpoint para atualizar um cliente existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do cliente a ser atualizado.
+Corpo da Requisição:
+
+```bash
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
+```
+
+Resposta: 
+
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
+
+```
+
+DELETE /customers/:id
+Endpoint para excluir um cliente existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do cliente a ser excluído.
+
+Resposta:
+```bash
+204 No Content
+
+```
+
+## Products
+POST /products
+Endpoint para criar um novo produto.
+
+Corpo da Requisição: 
+```bash
+Content-Type: application/json
+
+{
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+
+```
+
+Resposta: 
+
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+
+```
+
+GET /products
+Endpoint para recuperar todos os produtos.
+
+Parâmetros da Consulta
+Nenhum.
+
+Resposta: 
+```bash
+200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": "1",
+    "name": "Product 1",
+    "price": 9.99,
+    ...
+  },
+  {
+    "id": "2",
+    "name": "Product 2",
+    "price": 19.99,
+    ...
+  },
+  ...
+]
+
+
+```
+
+GET /products/:id
+Endpoint para recuperar um produto específico pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do produto.
+
+Resposta: 
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+
+
+```
+
+
+PATCH /products/:id
+Endpoint para atualizar parcialmente um produto existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do produto a ser atualizado.
+Corpo da Requisição: 
+```bash
+Content-Type: application/json
+
+{
+  "name": "Product 1",
+  ...
+}
+
+
+```
+
+Resposta: 
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+
+```
+
+PUT /products/:id
+Endpoint para atualizar um produto existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do produto a ser atualizado.
+Corpo da Requisição: 
+```bash
+Content-Type: application/json
+
+{
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+
+
+```
+
+Resposta: 
+
+```bash
+200 OK
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "price": 9.99,
+  ...
+}
+```
+
+DELETE /products/:id
+Endpoint para excluir um produto existente pelo ID.
+
+Parâmetros de Rota
+id (obrigatório): O ID do produto a ser excluído.
+Resposta:
+
+```bash
+204 No Content
 ```
 
 ## Visualizar a API do Swagger
