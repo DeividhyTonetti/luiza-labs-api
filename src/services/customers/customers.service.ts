@@ -1,61 +1,80 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from 'src/services/prisma/prisma.service';
-import { HttpService } from '@nestjs/axios';
-
-import { 
-  CreateCustomerDTO, 
-  PartialUpdateCustormerDTO, 
-  UpdateCustomerDTO 
+import {
+  CreateCustomerDTO,
+  PartialUpdateCustomerDTO,
+  UpdateCustomerDTO,
 } from '@dtos';
-
-import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class CustomersService {
-  constructor(
-    private readonly prisma: PrismaService,
-    private httpService: HttpService
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async create({ name, email }: CreateCustomerDTO) {
-    return await this.prisma.customers.create({
-      data: {
-        name,
-        email
-      }
-    })
+  public async create({ name, email }: CreateCustomerDTO) {
+    try {
+      const newCustomer = await this.prisma.customers.create({
+        data: {
+          name,
+          email,
+        },
+      });
+      return newCustomer;
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
-  async findAll() {
-    const teste = await lastValueFrom(this.httpService.get('1bf0f365-fbdd-4e21-9786-da459d78dd1f/'))
-
-    console.log('======> ', teste.data)
-    return await this.prisma.customers.findMany()
+  public async findAll() {
+    try {
+      const customers = await this.prisma.customers.findMany();
+      return customers;
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
-  async findOne(id: string) {
-    return await this.prisma.customers.findUnique({
-      where: { id }
-    })
+  public async findOne(id: string) {
+    try {
+      const customer = await this.prisma.customers.findUnique({
+        where: { id },
+      });
+      return customer;
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
-  async update(id: string, custormerData: UpdateCustomerDTO) {
-    return await this.prisma.customers.update({
-      data: custormerData,
-      where: { id }
-    })
+  public async update(id: string, customerData: UpdateCustomerDTO) {
+    try {
+      const updatedCustomer = await this.prisma.customers.update({
+        data: customerData,
+        where: { id },
+      });
+      return updatedCustomer;
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
-  async patch(id: string, custormerData: PartialUpdateCustormerDTO) {
-    return await this.prisma.customers.update({
-      data: custormerData,
-      where: { id }
-    })
+  public async patch(id: string, customerData: PartialUpdateCustomerDTO) {
+    try {
+      const updatedCustomer = await this.prisma.customers.update({
+        data: customerData,
+        where: { id },
+      });
+      return updatedCustomer;
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
-  async remove(id: string) {
-    return await this.prisma.customers.delete({
-      where: { id }
-    })
+  public async remove(id: string) {
+    try {
+      await this.prisma.customers.delete({
+        where: { id },
+      });
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

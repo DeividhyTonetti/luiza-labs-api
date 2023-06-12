@@ -29,7 +29,7 @@ export class ProductsController {
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
   findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+    return this.productsService.findOne(id);
   }
 
   @Patch(':id')
@@ -37,8 +37,8 @@ export class ProductsController {
   @ApiBody({ type: PartialUpdateProductDTO })
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
-  partialUpdate(@Param('id') id: string, @Body() updateCustomerDto: PartialUpdateProductDTO) {
-    // return this.customersService.patch(id, updateCustomerDto);
+  partialUpdate(@Param('id') id: string, @Body() updateProduct: PartialUpdateProductDTO) {
+    return this.productsService.patch(id, updateProduct);
   }
 
   @Put(':id')
@@ -46,8 +46,8 @@ export class ProductsController {
   @ApiBody({ type: UpdateProductDTO })
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
-  update(@Param('id') id: string, @Body() updateProductDto: any) {
-    return this.productsService.update(+id, updateProductDto);
+  update(@Param('id') id: string, @Body() updateProduct: UpdateProductDTO) {
+    return this.productsService.update(id, updateProduct);
   }
 
   @Delete(':id')
@@ -55,6 +55,6 @@ export class ProductsController {
   @HttpCode(HttpStatus.OK)
   @UsePipes(new ValidationPipe())
   remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+    return this.productsService.remove(id);
   }
 }
