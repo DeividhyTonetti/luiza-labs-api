@@ -51,8 +51,21 @@ $ git clone https://github.com/DeividhyTonetti/luiza-labs-api
 ```bash
 $ cd seuRepositorio
 ```
+3. Crie as vairáveis de ambiente
+```bash
+    NODE_ENV="development" // or production
 
-3. Execute o comando do Docker Compose para construir e iniciar os containers:
+    # Database Config
+    DATABASE_USER="seu usuário"  // padrão DATABASE_USER="postgres"
+    DATABASE_PASSWORD="sua senha"
+    DATABASE_NAME="luizaLabs"
+    DATABASE_HOST="seu host" // padrão "localhost"
+    DATABASE_PORT="sua porta" //5432
+    DATABASE_URL="postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?schema=public"
+
+```
+
+4. Execute o comando do Docker Compose para construir e iniciar os containers:
 
 ```bash
 $ docker-compose up -d
@@ -60,7 +73,7 @@ $ docker-compose up -d
 ```
    Isso criará e inicializará os      containers Docker necessários para executar o sistema.
 
-4. O sistema estará disponível em http://localhost:3000. Você pode acessar a documentação da API através do Swagger em http://localhost:3000/api.
+5. O sistema estará disponível em http://localhost:3000. Você pode acessar a documentação da API através do Swagger em http://localhost:3000/api.
 
 
 ## Documentação das Rotas
