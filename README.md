@@ -22,52 +22,113 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição 
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+(https://github.com/nestjs/nest) Este repositório contém a documentação para iniciar o sistema e documentar as rotas de um projeto desenvolvido com as seguintes tecnologias:
 
-## Installation
+- Docker Compose 
+- NestJS
+- Swagger
+- Prisma
+- TypeScript
+- PostgreSQL
+- Jest
+
+## Configuração do Ambiente
+
+Certifique-se de ter o Docker Compose instalado em sua máquina. Você pode encontrar as instruções de instalação no site oficial do Docker.
+
+## Inicialização do Sistema
+Para iniciar o sistema, siga as etapas abaixo:
+
+1. Clone este repositório em sua máquina local:
+```bash
+$ git clone https://github.com/DeividhyTonetti/luiza-labs-api
+```
+    
+2. Navegue até o diretório raiz do projeto:
 
 ```bash
-$ npm install
+$ cd seuRepositorio
 ```
 
-## Running the app
+3. Execute o comando do Docker Compose para construir e iniciar os containers:
 
 ```bash
-# development
-$ npm run start
+$ docker-compose up -d
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
+   Isso criará e inicializará os      containers Docker necessários para executar o sistema.
 
-## Test
+4. O sistema estará disponível em http://localhost:3000. Você pode acessar a documentação da API através do Swagger em http://localhost:3000/api.
+
+
+## Documentação das Rotas
+
+A seguir, estão documentadas as rotas disponíveis no sistema:
+
+### Customers
+POST /customers
+Endpoint para criar um novo cliente.
+
+Corpo da Requisição:
+```bash
+ Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
+
+
+
+```
+Resposta:
 
 ```bash
-# unit tests
-$ npm run test
+200 OK
+Content-Type: application/json
 
-# e2e tests
-$ npm run test:e2e
+{
+  "id": "1",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  ...
+}
 
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+## Visualizar a API do Swagger
+Você pode visualizar a documentação da API usando o Swagger. Para acessar a documentação, siga estas etapas:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+1. Certifique-se de que o sistema esteja em execução.
 
-## Stay in touch
+2. Abra o navegador e vá para http://localhost:3000/api.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3. A documentação da API será exibida no Swagger UI.
 
+## Visualizar o Banco de Dados com o Prisma
+
+   Você pode visualizar o banco de dados usando o Prisma. Para visualizar o banco de dados, execute o seguinte comando:
+  
+ ```bash
+ 
+
+npx prisma studio
+
+``` 
+
+   Isso abrirá o Prisma Studio no navegador, onde você pode explorar e modificar os dados do banco de dados.
+   
+   
+## Download das Rotas no Insomnia
+
+  Você pode baixar um arquivo com as rotas no formato do Insomnia para facilitar o teste da API. Clique no botão abaixo para fazer o download:
+
+Download Insomnia
+
+  Depois de baixar o arquivo, importe-o no Insomnia para obter todas as rotas configuradas automaticamente.
 ## License
 
 Nest is [MIT licensed](LICENSE).
