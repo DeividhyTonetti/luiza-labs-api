@@ -3,7 +3,6 @@ import { CreateProductDto, PartialUpdateProductDTO, UpdateProductDTO } from '@dt
 import { HttpService } from '@nestjs/axios';
 import { PrismaService } from 'src/services/prisma/prisma.service';
 import { lastValueFrom } from 'rxjs';
-import { Product } from '@/controllers/products/entities/product.entity';
 
 @Injectable()
 export class ProductsService {
